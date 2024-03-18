@@ -22,9 +22,9 @@ $arr_keys = $firstComic ? array_keys($firstComic->toArray()) : [];
 
             @foreach ($comics as $comic)
                 <tr>
-                    <th scope="row" class="px-5">
-                        <a href="{{ route('comics.show', ['comic' => $comic->id]) }}">
-                            {{ $loop->iteration }}
+                    <th scope="row" class="">
+                        <a href="{{ route('comics.show', ['comic' => $comic->id]) }}" class="btn btn-primary ">
+                            Show
                         </a>
                     </th>
 
