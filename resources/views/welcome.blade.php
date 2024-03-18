@@ -2,8 +2,8 @@
 @section('title', 'DC Comics|Home')
 
 <?php
-$arr_keys = array_keys($comics[0]);
-
+$firstComic = $comics->first();
+$arr_keys = $firstComic ? array_keys($firstComic->toArray()) : [];
 ?>
 
 @section('content')
@@ -23,7 +23,7 @@ $arr_keys = array_keys($comics[0]);
             @foreach ($comics as $comic)
                 <tr>
                     <th scope="row" class="px-5">{{ $loop->iteration }}</th>
-                    @foreach ($comic as $key => $value)
+                    @foreach ($comic->getAttributes() as $value)
                         <td>{{ $value }}</td>
                     @endforeach
                 </tr>
