@@ -9,13 +9,23 @@
     align-items: center;
 }
 
+.description {
+    width: 30%;
+
+}
+
+
+
+
+
+
 .card img {
     width: 150px;
     margin: 0 auto;
 }
 
 td {
-    line-break: anywhere;
+    word-break: break-all;
 }
 
 ::-webkit-scrollbar {

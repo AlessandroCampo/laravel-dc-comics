@@ -7,19 +7,19 @@ $arr_keys = $firstComic ? array_keys($firstComic->toArray()) : [];
 ?>
 
 @section('content')
-    <div class="d-flex gap-2 align-items-center py-3">
-        <h2 class="text-white text-uppercase"> All comics </h2>
-        <a href="{{ route('comics.create') }}" class="btn btn-success ">
+    <div class="d-flex gap-5 align-items-center py-5 justify-content-center">
+        <h1 class="text-white text-uppercase"> All comics </h1>
+        <a href="{{ route('comics.create') }}" class="btn btn-success mb-1">
             Create new record
         </a>
     </div>
 
-    <table class="table table-dark text-center">
+    <table class="table table-dark text-center table-striped">
         <thead>
             <tr>
                 <th scope="col">Actions</th>
                 @foreach ($arr_keys as $key)
-                    <th>
+                    <th class={{ $key == 'description' ? 'description' : '' }}>
                         {{ strtoupper($key) }}
                     </th>
                 @endforeach
@@ -51,8 +51,8 @@ $arr_keys = $firstComic ? array_keys($firstComic->toArray()) : [];
 
                     </th>
 
-                    @foreach ($comic->getAttributes() as $value)
-                        <td>{{ $value }}</td>
+                    @foreach ($comic->getAttributes() as $key => $value)
+                        <td class="{{ $key == 'description' ? 'description' : '' }}">{{ $value }}</td>
                     @endforeach
                 </tr>
             @endforeach
