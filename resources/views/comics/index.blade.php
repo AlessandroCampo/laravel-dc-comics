@@ -30,9 +30,24 @@ $arr_keys = $firstComic ? array_keys($firstComic->toArray()) : [];
             @foreach ($comics as $comic)
                 <tr>
                     <th scope="row" class="">
-                        <a href="{{ route('comics.show', ['comic' => $comic->id]) }}" class="btn btn-primary ">
-                            Show
-                        </a>
+                        <div class="d-flex flex-column gap-2 justify-content-center w-100">
+                            <a href="{{ route('comics.show', ['comic' => $comic->id]) }}" class="btn btn-primary ">
+                                Show
+                            </a>
+                            <form
+                                action="{{ route('comics.destroy', ['comic' => $comic->id]) }}
+                            "
+                                method="POST">
+                                @csrf
+                                @method('Delete')
+                                <button type="submit" class="btn btn-danger "> Delete </button>
+                            </form>
+                            <a href="{{ route('comics.edit', ['comic' => $comic->id]) }}" class="btn btn-warning">
+                                Edit
+                            </a>
+
+                        </div>
+
 
                     </th>
 

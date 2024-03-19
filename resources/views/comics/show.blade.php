@@ -5,9 +5,9 @@
 
 @section('content')
     <div class="my-container justify-content-center">
-        <div class="card w-50">
+        <div class="card w-50 p-5  bg-secondary-subtle">
             <img src="{{ $comic->thumb }}" class="card-img-top" alt="...">
-            <div class="card-body">
+            <div class="card-body d-flex flex-column gap-3 align-items-start">
                 <h5 class="card-title">{{ $comic->title }}</h5>
                 <p class="card-text">{{ $comic->description }}</p>
                 <p class="card-text"><span class="fw-bold text-uppercase ">price:</span> {{ $comic->price }}</p>
