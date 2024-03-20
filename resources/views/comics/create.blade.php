@@ -1,7 +1,15 @@
 @extends('layouts.main')
 @section('title', 'DC Comics|Home')
 
-
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li> {{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 
 <form action="{{ route('comics.store') }}" method="POST" class="p-5">
     @csrf
