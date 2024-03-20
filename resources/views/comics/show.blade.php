@@ -13,7 +13,20 @@
                 <p class="card-text"><span class="fw-bold text-uppercase ">price:</span> {{ $comic->price }}</p>
                 <p class="card-text"><span class="fw-bold text-uppercase">series:</span> {{ $comic->series }}</p>
                 <p class="card-text"><span class="fw-bold text-uppercase">sale date:</span> {{ $comic->sale_date }}</p>
-                <a href="/" class="btn btn-primary">Back to index</a>
+                <div class="d-flex gap-3">
+                    <a href="/" class="btn btn-primary">Back to index</a>
+                    <form action="{{ route('comics.destroy', ['comic' => $comic->id]) }}
+                                "
+                        method="POST">
+                        @csrf
+                        @method('Delete')
+                        <button type="submit" class="btn btn-danger "> Delete </button>
+                    </form>
+                    <a href="{{ route('comics.edit', ['comic' => $comic->id]) }}" class="btn btn-warning">
+                        Edit
+                    </a>
+                </div>
+
             </div>
         </div>
     </div>

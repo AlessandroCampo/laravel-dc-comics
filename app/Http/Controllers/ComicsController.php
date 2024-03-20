@@ -32,13 +32,13 @@ class ComicsController extends Controller
     {
         $request->validate(
             [
-                'title' => 'required|unique:comics|max:125',
-                'description' => 'max:125',
+                'title' => 'required|unique:comics|max:250',
+                'description' => '',
                 'thumb' => 'active_url',
                 'price' => 'required|numeric|regex:/^\d{1,3}(\.\d{1,2})?$/',
                 'series' => 'required|max:50',
                 'sale_date' => 'required|date_format:Y-m-d',
-                'type' => 'required|alpha'
+                'type' => 'required'
             ]
         );
         $form_data = $request->all();
@@ -73,14 +73,14 @@ class ComicsController extends Controller
                 'title' => [
                     'required',
                     Rule::unique('comics')->ignore($comic->id),
-                    'max:125',
+                    'max:250',
                 ],
-                'description' => 'max:125',
+                'description' => '',
                 'thumb' => 'active_url',
                 'price' => 'required|numeric|regex:/^\d{1,3}(\.\d{1,2})?$/',
                 'series' => 'required|max:50',
                 'sale_date' => 'required|date',
-                'type' => 'required|alpha'
+                'type' => 'required'
             ]
         );
         $form_data = $request->all();
